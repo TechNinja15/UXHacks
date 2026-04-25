@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Outfit", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --bg-dark: #0a0a14;
+    --neon-primary: #4c5fd5;
+    --neon-secondary: #00e5ff;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0c0;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --neon-primary-glow: rgba(76, 95, 213, 0.3);
+    --neon-secondary-glow: rgba(0, 229, 255, 0.3);
+  }
+
+  * {
+    @apply border-white/10;
+  }
+
+  body {
+    @apply bg-[#050505] text-white antialiased;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .neon-glow-primary {
+    box-shadow: 0 0 20px rgba(76, 95, 213, 0.2);
+  }
+  .neon-glow-secondary {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+  }
+  
+  .glass {
+    @apply bg-white/3 backdrop-blur-xl border border-white/10;
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.pause-on-hover:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-gradient-neon {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#4c5fd5] to-[#00e5ff];
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00e5ff;
+}
