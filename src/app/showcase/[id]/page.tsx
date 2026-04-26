@@ -4,6 +4,8 @@ import { ArrowLeft, ExternalLink, Share2, Info } from 'lucide-react';
 import LivePreview from '@/components/LinkIntelligence/LivePreview';
 import CommentSection from '@/components/LinkIntelligence/CommentSection';
 
+export const dynamic = 'force-dynamic';
+
 interface PageProps {
   params: {
     id: string;

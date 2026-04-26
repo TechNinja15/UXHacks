@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import ShowcaseCard from '@/components/ShowcaseCard';
 
+export const dynamic = 'force-dynamic';
+
 export default async function ShowcaseWall() {
   const { prisma } = await import("@/lib/prisma");
   

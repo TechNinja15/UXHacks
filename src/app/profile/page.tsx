@@ -5,6 +5,8 @@ import Link from "next/link";
 import { User, Mail, Shield, Calendar, ExternalLink, LayoutGrid } from "lucide-react";
 import ShowcaseCard from "@/components/ShowcaseCard";
 
+export const dynamic = 'force-dynamic';
+
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions);
 
