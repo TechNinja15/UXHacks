@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,6 +20,9 @@ export const metadata: Metadata = {
   }
 };
 
+import ConditionalLayout from "@/components/ConditionalLayout";
+import AuthContext from "@/components/AuthContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,9 +31,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${outfit.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <AuthContext>
+          <ConditionalLayout>
+            {children}
+          </ConditionalLayout>
+        </AuthContext>
       </body>
     </html>
   );
